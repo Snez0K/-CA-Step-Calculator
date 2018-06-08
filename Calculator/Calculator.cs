@@ -20,17 +20,17 @@ namespace Calculator
         private void Button_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            if (operationStart == false)
+            if (!operationStart)
             {
                 EnableAll();
                 buttonResult.Enabled = false;
             }
-            if (result.Text == "0" || lastOperation == true)
+            if (result.Text == "0" || lastOperation)
             {
                 result.Text = button.Text;
                 lastOperation = false;
             }
-            else if (operationStart == true && checkForNextNumber == false)
+            else if (operationStart && !checkForNextNumber)
             {
                 result.Text = "";
                 result.Text = result.Text + button.Text;
@@ -41,7 +41,7 @@ namespace Calculator
             {
                 result.Text = result.Text + button.Text;
             }
-            if (trouble == true)
+            if (trouble)
             {
                 buttonResult.Enabled = true;
                 trouble = false;
@@ -51,7 +51,7 @@ namespace Calculator
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            if (operationStart == true)
+            if (operationStart)
             {
                 result.Text = "";
             }
