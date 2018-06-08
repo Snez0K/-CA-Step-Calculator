@@ -46,7 +46,6 @@ namespace Calculator
                 buttonResult.Enabled = true;
                 trouble = false;
             }
-            
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
