@@ -7,8 +7,8 @@ namespace Calculator
     {
         private int value = 0;
         private string operation = "";
-        private bool operation_start = false;
-        private bool lastoperation = false;
+        private bool operationStart = false;
+        private bool lastOperation = false;
         private bool check = false;
         private bool trouble = false;
 
@@ -20,17 +20,17 @@ namespace Calculator
         private void Button_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            if (operation_start == false)
+            if (operationStart == false)
             {
                 EnableAll();
                 buttonResult.Enabled = false;
             }
-            if (result.Text == "0" || lastoperation == true)
+            if (result.Text == "0" || lastOperation == true)
             {
                 result.Text = button.Text;
-                lastoperation = false;
+                lastOperation = false;
             }
-            else if (operation_start == true && check == false)
+            else if (operationStart == true && check == false)
             {
                 result.Text = "";
                 result.Text = result.Text + button.Text;
@@ -51,7 +51,7 @@ namespace Calculator
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            if (operation_start == true)
+            if (operationStart == true)
             {
                 result.Text = "";
             }
@@ -72,7 +72,7 @@ namespace Calculator
             Button button = (Button)sender;
             operation = button.Text;
             value = int.Parse(result.Text);
-            operation_start = true;
+            operationStart = true;
             history.Text = value + " " + operation;
             DisableAll();
             check = false;
@@ -98,9 +98,9 @@ namespace Calculator
                 default:
                     break;
             }
-            operation_start = false;
+            operationStart = false;
             buttonResult.Enabled = false;
-            lastoperation = true;
+            lastOperation = true;
         }
 
         private void EnableAll()
