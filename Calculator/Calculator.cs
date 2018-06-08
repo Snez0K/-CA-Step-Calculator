@@ -9,7 +9,7 @@ namespace Calculator
         private string operation = "";
         private bool operationStart = false;
         private bool lastOperation = false;
-        private bool check = false;
+        private bool checkForNextNumber = false;
         private bool trouble = false;
 
         public Calculator()
@@ -30,12 +30,12 @@ namespace Calculator
                 result.Text = button.Text;
                 lastOperation = false;
             }
-            else if (operationStart == true && check == false)
+            else if (operationStart == true && checkForNextNumber == false)
             {
                 result.Text = "";
                 result.Text = result.Text + button.Text;
                 buttonResult.Enabled = true;
-                check = true; 
+                checkForNextNumber = true; 
             }
             else 
             {
@@ -75,7 +75,7 @@ namespace Calculator
             operationStart = true;
             history.Text = value + " " + operation;
             DisableAll();
-            check = false;
+            checkForNextNumber = false;
         }
 
         private void ButtonResult_Click(object sender, EventArgs e)
