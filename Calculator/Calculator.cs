@@ -10,6 +10,7 @@ namespace Calculator
         private bool operation_start = false;
         private bool lastoperation = false;
         private bool check = false;
+        private bool trouble = false;
 
         public Calculator()
         {
@@ -40,6 +41,11 @@ namespace Calculator
             {
                 result.Text = result.Text + button.Text;
             }
+            if (trouble == true)
+            {
+                buttonResult.Enabled = true;
+                trouble = false;
+            }
             
         }
 
@@ -48,16 +54,17 @@ namespace Calculator
             if (operation_start == true)
             {
                 result.Text = "";
-            }else
+            }
+            else
             {
                 result.Text = "";
                 history.Text = "";
                 value = 0;
                 operation = "";
                 DisableAll();
-                buttonResult.Enabled = false;
             }
-            
+            buttonResult.Enabled = false;
+            trouble = true;
         }
 
         private void Button_operator(object sender, EventArgs e)
