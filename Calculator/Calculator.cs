@@ -50,13 +50,9 @@ namespace Calculator
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            if (operationStart)
+            result.Text = "";
+            if (!operationStart)
             {
-                result.Text = "";
-            }
-            else
-            {
-                result.Text = "";
                 history.Text = "";
                 value = 0;
                 operation = "";
