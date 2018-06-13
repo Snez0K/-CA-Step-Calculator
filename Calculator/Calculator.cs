@@ -10,7 +10,7 @@ namespace Calculator
         private bool operationStart;
         private bool lastOperation;
         private bool checkForNextNumber;
-        private bool trouble;
+        private bool noSecondOperand;
 
         public Calculator()
         {
@@ -41,10 +41,10 @@ namespace Calculator
             {
                 result.Text = result.Text + button.Text;
             }
-            if (trouble)
+            if (noSecondOperand)
             {
                 buttonResult.Enabled = true;
-                trouble = false;
+                noSecondOperand = false;
             }
         }
 
@@ -59,7 +59,7 @@ namespace Calculator
                 DisableAll();
             }
             buttonResult.Enabled = false;
-            trouble = true;
+            noSecondOperand = true;
         }
 
         private void Button_operator(object sender, EventArgs e)
