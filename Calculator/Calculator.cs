@@ -5,12 +5,12 @@ namespace Calculator
 {
     public partial class Calculator : Form
     {
-        private int value = 0;
+        private int value;
         private string operation = "";
-        private bool operationStart = false;
-        private bool lastOperation = false;
-        private bool checkForNextNumber = false;
-        private bool trouble = false;
+        private bool operationStart;
+        private bool lastOperation;
+        private bool checkForNextNumber;
+        private bool trouble;
 
         public Calculator()
         {
