@@ -90,8 +90,6 @@ namespace Calculator
                 case "/":
                     result.Text = (value / int.Parse(result.Text)).ToString();
                     break;
-                default:
-                    break;
             }
             operationStart = false;
             buttonResult.Enabled = false;
